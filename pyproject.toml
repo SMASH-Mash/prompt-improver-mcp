@@ -1,0 +1,48 @@
+[project]
+name = "prompt-improver-mcp"
+version = "0.1.0"
+description = "MCP server that rewrites prompts using techniques from the prompting literature (LLaVA-CoT, System 2 Attention, Chain-of-Verification, ...)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Sayaad Muzahid Masfi" }]
+requires-python = ">=3.11"
+keywords = ["mcp", "model-context-protocol", "prompt-engineering", "llm", "chain-of-thought", "llava-cot", "claude"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "mcp>=2.3,<3",
+    "anthropic>=1.14,<2",
+]
+
+[project.urls]
+Homepage = "https://github.com/SMASH-Mash/prompt-improver-mcp"
+Repository = "https://github.com/SMASH-Mash/prompt-improver-mcp"
+Issues = "https://github.com/SMASH-Mash/prompt-improver-mcp/issues"
+
+[project.scripts]
+prompt-improver-mcp = "prompt_improver.server:main"
+prompt-improver = "prompt_improver.cli:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/prompt_improver"]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

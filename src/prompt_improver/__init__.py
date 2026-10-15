@@ -1,0 +1,1 @@
+"""Prompt improver MCP server."""
